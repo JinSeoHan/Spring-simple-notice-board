@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- HEADER -->
+    <div><h1>게시글 작성</h1></div>
+
+    <form th:action="@{'/post/edit/' + ${board.id}}" method="post">
+        <input type="hidden" name="_method" value="put"/>
+        <input type="hidden" name="id" th:value="${board.id}"/>
+
+        제목  <input type="text" name="title" th:value="${board.title}"> <br>
+        내용  <textarea name="content" th:text="${board.content}"></textarea><br>
+
+        <input type="submit" value="수정">
+    </form>
+</body>
+</html>
